@@ -7,18 +7,16 @@ import joblib
 model = joblib.load("xgboost_final_model.pkl")
 
 # Nuevos datos (ejemplo)
-new_data = pd.DataFrame(
-    {
-        "Age": [65],
-        "IL-8": [12.3],
-        "OPN": [45.1],
-        "NSE": [18.2],
-        "IL-6": [9.8],
-        "Prolactin": [7.4],
-        "Omega_Score": [0.62],
-        "TGFa": [3.1],
-    }
-)
+new_data = { 
+    "Age": float(input("Edad: ")), 
+    "IL-8": float(input("IL-8: ")), 
+    "OPN": float(input("OPN: ")), 
+    "NSE": float(input("NSE: ")), 
+    "IL-6": float(input("IL-6: ")), 
+    "Prolactin": float(input("Prolactina: ")), 
+    "Omega_Score": float(input("Omega Score: ")), 
+    "TGFa": float(input("TGFa: ")), 
+}
 
 # Predicción
 pred = model.predict(new_data)[0]
